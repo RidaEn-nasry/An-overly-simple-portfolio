@@ -13,7 +13,7 @@ function Login() {
             password: password,
         };
         console.log(JSON.stringify(data));
-        await fetch('http://localhost:8080/admin/login/', {
+        await fetch('http://localhost:8080/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

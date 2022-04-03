@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const User = require("../models/UserModel")
 const Joi = require('@hapi/joi');
-const JWT = require('jsonwebtoken');
-
+const bcrypt = require('bcrypt');
+// const blogsRoute = require('../Routes/blogRoute');
 
 const registerSchema = Joi.object({
     name: Joi.string().min(3).max(255).required(),
@@ -66,9 +66,10 @@ router.post("/login", async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) return res.status(400).send('Email or password is wrong');
 
-    //create and assign token
-    const token = JWT.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    // return user logged seccessfully
+    res.send({ user: user._id });
+    // res.send("User logged in successfully");
+
 
 });
 

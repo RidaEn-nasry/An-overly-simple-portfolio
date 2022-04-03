@@ -2,10 +2,8 @@
 
 // const routes = require('./routes');
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
-
 
 const mongoose = require('mongoose');
 
@@ -13,19 +11,20 @@ const helmet = require('helmet');
 // const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 app.use(cors());
+app.use(express.json());
 
 
 //Custom Routes
 const router = require('./routes/AuthRoutes');
+const blogRoute = require("./routes/blogRoute");
 // const limiter = rateLimit({
 //     windowMs: 15 * 60 * 1000, // 15 minutes
 //     max: 100, // limit each IP to 100 requests per windowMs
 // });
 
 
-
 //setup and connect to mongoose
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
@@ -46,11 +45,11 @@ mongoose.connection.once('open', () => {
 
 
 
-
 app.listen(8080);
 // app.use(helmet());
 
 app.use("/admin", router);
+app.use("/", blogRoute);
 // app.use(limiter);
 
 
