@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import CreateBlog from './pages/CreateBlog';
 import ShowBlogs from './pages/ShowBlogs';
+
 // import Skill from './components/Skill';
 function App() {
     return (
@@ -16,6 +17,8 @@ function App() {
                     <Route exact path="admin/login" element={<Login />} />
                     <Route exact path="admin/createblog" element={<CreateBlog />} />
                     <Route exact path="blogs" element={<ShowBlogs />} />
+                    // Route each blog  when click
+
                 </Routes>
             </Router>
         </div>

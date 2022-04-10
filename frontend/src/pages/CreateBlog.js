@@ -45,10 +45,10 @@ function CreateBlog() {
                 <div className="form-group flex flex-col p-28 w-screen items-center justify-center text-center">
                     <label htmlFor="title" className="mt-10"></label>
                     {/* styling textarea with tailwind css */}
-                    <textarea id="title" onChange={e => setTitle(e.target.value)} placeholder="what's the title for fuck's sake" className="form-control w-full text-3xl outline-0	"></textarea>
+                    <textarea id="title" onChange={e => setTitle(e.target.value)} placeholder="Title" className="form-control w-full text-3xl outline-0	"></textarea>
                     <label htmlFor="body"  className="mt-10" ></label>
-                    <textarea id="body" onChange={e => setBody(e.target.value) } placeholder="Tell Your fucking story fast..." className="form-control h-[800px] w-full outline-0	"></textarea>
-                    <button type="submit" className="w-52 mt-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-200 rounded-lg shadow" >Post the sheet out of it</button>
+                    <textarea id="body" onChange={e => setBody(e.target.value) } placeholder="Your story..." className="form-control h-[800px] w-full outline-0	"></textarea>
+                    <button type="submit" className="w-30 mt-10 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-200 rounded-lg shadow" >Post</button>
                 </div>
             </form>
       </div>
@@ -56,4 +56,5 @@ function CreateBlog() {
 }
 
 export default CreateBlog;
+
 

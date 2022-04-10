@@ -37,4 +37,19 @@ router.post("/blogs", async (req, res) => {
     }
 });
 
+
+// retrieve a blog by id 
+router.get('/blogs/:id', async (req, res) => {
+    const _id = req.params.id;
+    try {
+        const blog = await Blog.findById(_id);
+        res.send(blog);
+        } catch (err) {
+            console.log("Failed to find blog");
+            res.status(500).send(err);
+        }
+    }
+);
+
+
 module.exports = router;
